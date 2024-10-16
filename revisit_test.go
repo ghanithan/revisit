@@ -13,10 +13,10 @@ func TestRevisit(t *testing.T) {
 }
 
 func TestMerge(t *testing.T) {
-	want := []int{1, 2, 2, 3, 5, 6}
-	nums1 := []int{3, 1, 2, 0, 0, 0}
+	want := []int{2, 3, 5, 6, 10, 12}
+	nums1 := []int{3, 10, 12, 0, 0, 0}
 	m := 3
-	nums2 := []int{2, 5, 6}
+	nums2 := []int{5, 2, 6}
 	n := 3
 	Merge(nums1, m, nums2, n)
 	if got := nums1; !reflect.DeepEqual(got, want) {
