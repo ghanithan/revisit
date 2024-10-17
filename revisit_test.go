@@ -64,3 +64,13 @@ func TestMajorityElement(t *testing.T) {
 		t.Errorf("MajorityElement() = %q, want %q", got, want)
 	}
 }
+
+func TestRotate(t *testing.T) {
+	input := []int{1, 2, 3, 4, 5, 6, 7, 8}
+	want := []int{6, 7, 8, 1, 2, 3, 4, 5}
+	Rotate(input, 3)
+	fmt.Println("output", input)
+	if !reflect.DeepEqual(input, want) {
+		t.Errorf("Rotate() = %q, want %q", input, want)
+	}
+}

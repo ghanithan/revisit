@@ -10,6 +10,37 @@ func Revisit(name string) string {
 	return greetings
 }
 
+// https://leetcode.com/problems/rotate-array/submissions/1425243957
+
+func Rotate(nums []int, k int) {
+	temp := make([]int, k)
+	if len(nums) > k {
+		copy(temp, nums[len(nums)-k:])
+		for i := len(nums) - 1 - k; i >= 0; i-- {
+			nums[i+k] = nums[i]
+		}
+		for i := 0; i < len(temp); i++ {
+			nums[i] = temp[i]
+		}
+	} else {
+		Rotate1(nums, k)
+	}
+
+}
+
+func Rotate1(nums []int, k int) {
+	if k <= 0 {
+		return
+	}
+	temp := nums[len(nums)-1]
+	for i := len(nums) - 1; i > 0; i-- {
+		nums[i] = nums[i-1]
+	}
+	nums[0] = temp
+	Rotate1(nums, k-1)
+
+}
+
 func MajorityElement(nums []int) int {
 	majority := make(map[int]int)
 	for i := 0; i < len(nums); i++ {
@@ -64,9 +95,9 @@ func RemoveElement(nums []int, val int) int {
 
 func Merge(nums1 []int, m int, nums2 []int, n int) {
 	nums1 = append(nums1[:m], nums2...)
-	fmt.Println("input", nums1)
+	//fmt.Println("input", nums1)
 	quickSort(nums1)
-	fmt.Println("output", nums1)
+	//fmt.Println("output", nums1)
 }
 
 func swap(array []int, first, second int) {
