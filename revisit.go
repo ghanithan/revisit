@@ -10,6 +10,19 @@ func Revisit(name string) string {
 	return greetings
 }
 
+func RemoveElement(nums []int, val int) int {
+	count := 0
+	for i := len(nums) - 1; i >= 0; i-- {
+		if nums[i] == val {
+			count++
+			nums = append(append(nums[:i], nums[i+1:]...), 0)
+			fmt.Println(nums)
+
+		}
+	}
+	return len(nums) - count
+}
+
 func Merge(nums1 []int, m int, nums2 []int, n int) {
 	nums1 = append(nums1[:m], nums2...)
 	fmt.Println("input", nums1)

@@ -1,6 +1,7 @@
 package revisit
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
@@ -20,6 +21,16 @@ func TestMerge(t *testing.T) {
 	n := 3
 	Merge(nums1, m, nums2, n)
 	if got := nums1; !reflect.DeepEqual(got, want) {
+		t.Errorf("Merge() = %q, want %q", got, want)
+	}
+}
+
+func TestRemoveElement(t *testing.T) {
+	input := []int{0, 1, 2, 2, 3, 0, 4, 2}
+	want := []int{0, 1, 4, 0, 3}
+	got := RemoveElement(input, 2)
+	fmt.Println(got, input)
+	if !reflect.DeepEqual(got, want) {
 		t.Errorf("Merge() = %q, want %q", got, want)
 	}
 }
