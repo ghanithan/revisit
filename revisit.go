@@ -41,6 +41,7 @@ func Rotate1(nums []int, k int) {
 
 }
 
+// https://leetcode.com/problems/majority-element/submissions/1425199403
 func MajorityElement(nums []int) int {
 	majority := make(map[int]int)
 	for i := 0; i < len(nums); i++ {
@@ -54,6 +55,7 @@ func MajorityElement(nums []int) int {
 	return 0
 }
 
+// https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/submissions/1425189818
 func RemoveDuplicates2(nums []int) int {
 	count := 0
 	threshold := 0
@@ -71,6 +73,7 @@ func RemoveDuplicates2(nums []int) int {
 	return len(nums) - count
 }
 
+// https://leetcode.com/problems/remove-duplicates-from-sorted-array/submissions/1425184637
 func RemoveDuplicates(nums []int) int {
 	count := 0
 	for i := len(nums) - 1; i > 0; i-- {
@@ -82,6 +85,7 @@ func RemoveDuplicates(nums []int) int {
 	return len(nums) - count
 }
 
+// https://leetcode.com/problems/remove-element/submissions/1425176906
 func RemoveElement(nums []int, val int) int {
 	count := 0
 	for i := len(nums) - 1; i >= 0; i-- {
@@ -93,6 +97,7 @@ func RemoveElement(nums []int, val int) int {
 	return len(nums) - count
 }
 
+// https://leetcode.com/problems/merge-sorted-array/submissions/1424412767
 func Merge(nums1 []int, m int, nums2 []int, n int) {
 	nums1 = append(nums1[:m], nums2...)
 	//fmt.Println("input", nums1)
