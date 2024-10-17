@@ -40,7 +40,17 @@ func TestRemoveDuplicates(t *testing.T) {
 	want := []int{0, 1, 2, 3, 4, 0, 0, 0, 0, 0}
 	got := RemoveDuplicates(input)
 	fmt.Println(got, input)
-	if !reflect.DeepEqual(got, want) {
+	if !reflect.DeepEqual(input, want) {
+		t.Errorf("Merge() = %q, want %q", got, want)
+	}
+}
+
+func TestRemoveDuplicates2(t *testing.T) {
+	input := []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
+	want := []int{0, 0, 1, 1, 2, 2, 3, 3, 4, 0}
+	got := RemoveDuplicates2(input)
+	fmt.Println(got, input)
+	if !reflect.DeepEqual(input, want) {
 		t.Errorf("Merge() = %q, want %q", got, want)
 	}
 }
