@@ -31,7 +31,7 @@ func TestRemoveElement(t *testing.T) {
 	got := RemoveElement(input, 2)
 	fmt.Println(got, input)
 	if !reflect.DeepEqual(input, want) {
-		t.Errorf("Remove() = %q, want %q", got, want)
+		t.Errorf("Remove() = %q, want %q", input, want)
 	}
 }
 
@@ -41,7 +41,7 @@ func TestRemoveDuplicates(t *testing.T) {
 	got := RemoveDuplicates(input)
 	fmt.Println(got, input)
 	if !reflect.DeepEqual(input, want) {
-		t.Errorf("Merge() = %q, want %q", got, want)
+		t.Errorf("RemoveDuplicate() = %q, want %q", input, want)
 	}
 }
 
@@ -51,6 +51,16 @@ func TestRemoveDuplicates2(t *testing.T) {
 	got := RemoveDuplicates2(input)
 	fmt.Println(got, input)
 	if !reflect.DeepEqual(input, want) {
-		t.Errorf("Merge() = %q, want %q", got, want)
+		t.Errorf("RemoveDuplicate2() = %q, want %q", input, want)
+	}
+}
+
+func TestMajorityElement(t *testing.T) {
+	input := []int{1, 0, 1, 3, 1, 1, 2, 3, 1, 1}
+	want := 1
+	got := MajorityElement(input)
+	fmt.Println("majority", got, input)
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("MajorityElement() = %q, want %q", got, want)
 	}
 }

@@ -10,6 +10,19 @@ func Revisit(name string) string {
 	return greetings
 }
 
+func MajorityElement(nums []int) int {
+	majority := make(map[int]int)
+	for i := 0; i < len(nums); i++ {
+		majority[nums[i]]++
+	}
+	for k, v := range majority {
+		if v > len(nums)/2 {
+			return k
+		}
+	}
+	return 0
+}
+
 func RemoveDuplicates2(nums []int) int {
 	count := 0
 	threshold := 0
