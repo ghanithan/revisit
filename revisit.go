@@ -10,14 +10,23 @@ func Revisit(name string) string {
 	return greetings
 }
 
+func RemoveDuplicates(nums []int) int {
+	count := 0
+	for i := len(nums) - 1; i > 0; i-- {
+		if nums[i] == nums[i-1] {
+			nums = append(append(nums[:i], nums[i+1:]...), 0)
+			count++
+		}
+	}
+	return len(nums) - count
+}
+
 func RemoveElement(nums []int, val int) int {
 	count := 0
 	for i := len(nums) - 1; i >= 0; i-- {
 		if nums[i] == val {
 			count++
 			nums = append(append(nums[:i], nums[i+1:]...), 0)
-			fmt.Println(nums)
-
 		}
 	}
 	return len(nums) - count
