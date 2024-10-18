@@ -74,3 +74,13 @@ func TestRotate(t *testing.T) {
 		t.Errorf("Rotate() = %q, want %q", input, want)
 	}
 }
+
+func TestMaximumSwap(t *testing.T) {
+	input := 98368
+	want := 98863
+	got := MaximumSwap(input)
+	fmt.Println("output", got)
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("MaximumSwap() = %d, want %d", got, want)
+	}
+}

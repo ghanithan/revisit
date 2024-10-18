@@ -10,6 +10,55 @@ func Revisit(name string) string {
 	return greetings
 }
 
+func MaximumSwap(num int) int {
+	temp := num
+	maximum := 0
+	maximumPosition := 0
+	counter := 1
+	for num > 10 {
+		reminder := num % 10
+		num = num / 10
+		if reminder > maximum {
+			maximum = reminder
+			maximumPosition = counter
+		}
+		counter++
+
+	}
+	reminder := num % 10
+	if reminder > maximum {
+		maximum = reminder
+		maximumPosition = counter
+	}
+
+	fmt.Println(temp)
+	fmt.Println(maximum, maximumPosition, counter)
+
+	if maximumPosition == 0 || counter == 1 {
+		return temp
+	} else {
+		if maximumPosition == counter {
+			return maximum*pow10(maximumPosition-1) + MaximumSwap(temp%pow10(maximumPosition-1))
+		}
+		firstPart := ((temp % pow10(counter-1)) / pow10(maximumPosition)) % (pow10(counter - maximumPosition))
+		secondPart := (temp % pow10(maximumPosition)) % pow10((maximumPosition - 1))
+		fmt.Println(firstPart, secondPart)
+		fmt.Println((secondPart))
+		if num == maximum {
+			num = 0
+		}
+		return (maximum * pow10(counter-1)) + (firstPart * pow10(counter-2)) + (num * pow10(maximumPosition-1)) + (secondPart)
+	}
+
+}
+
+func pow10(power int) int {
+	if power == 0 {
+		return 1
+	}
+	return 10 * pow10(power-1)
+}
+
 // https://leetcode.com/problems/rotate-array/submissions/1425243957
 
 func Rotate(nums []int, k int) {
